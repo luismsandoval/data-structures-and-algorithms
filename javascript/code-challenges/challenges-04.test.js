@@ -157,6 +157,7 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) => a.lastName > b.lastName ? 1 : -1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -311,7 +312,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
