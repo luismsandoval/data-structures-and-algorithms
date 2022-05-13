@@ -89,7 +89,7 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  people.map(value => value.isAuthor = true);
+  people.forEach(value => value.isAuthor = true);
 };
 
 /* ------------------------------------------------------------------------------------------------
