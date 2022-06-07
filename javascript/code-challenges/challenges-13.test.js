@@ -9,9 +9,7 @@ Write a function named longestString that takes in an array of strings and retur
 const longestString = (arr) => {
   let newVar = '';
   arr.forEach(value => {
-    if (value.length > newVar.length) {
-      newVar = value;
-    }
+    value.length > newVar.length ? newVar = value : '';
   });
   return arr.indexOf(newVar);
 };
@@ -64,7 +62,7 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  return str.split('').filter((value, idx) => idx % 2 === 1).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,7 +72,8 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  return arr.filter(value =>
+    value.includes(':)')).length === arr.length ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
