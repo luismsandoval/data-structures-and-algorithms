@@ -15,9 +15,9 @@ describe("linked list", () => {
 
   it("inserts multiple nodes into linked list", () => {});
 
-  it("", () => {})
+  it("", () => {});
 
-  it("", () => {})
-  
-  it("", () => {})
+  it("", () => {});
+
+  it("", () => {});
 });
