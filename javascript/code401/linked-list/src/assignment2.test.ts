@@ -52,7 +52,7 @@ describe("Linked List", () => {
     list.insertBefore("Merry", "Pippin");
 
     const str = list.toString();
-    expect(str).toEqual("{ Merry } -> { Pippin } -> { Sam } -> { Frodo } -> NULL");
+    expect(str).toEqual("{ Pippin } -> { Merry } -> { Sam } -> { Frodo } -> NULL");
   });
 
   it("can insert after an element", () => {

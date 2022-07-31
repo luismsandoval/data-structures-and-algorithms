@@ -54,6 +54,16 @@ export class LinkedList<T> implements Collection<T> {
     let found = false;
     while (tracker !== undefined) {
       // check for first node
+      if (tracker.item === needle && found === false) {
+        found = true;
+        let shiftedNode = tracker;
+        const newNode = {
+          item: value,
+          next: shiftedNode,
+        };
+        this.start = newNode;
+      }
+
       if (tracker.next?.item === needle && found === false) {
         found = true;
         let shiftedNode = tracker.next;
@@ -62,7 +72,6 @@ export class LinkedList<T> implements Collection<T> {
           next: shiftedNode,
         };
         tracker.next = newNode;
-        // break;
       }
       tracker = tracker.next;
     }
