@@ -1,17 +1,44 @@
 export class Stack<T> {
+  head: Node<T> | undefined;
+
   get size(): number {
-    throw new Error("Not implemented");
+    let count = 0;
+    let current = this.head;
+    while (current !== undefined) {
+      count++;
+      current = current.next;
+    }
+    return count;
   }
 
   get peek(): T {
-    throw new Error("Not implemented");
+    let current = this.head;
+    if (current !== undefined) {
+      return current?.item;
+    }
+    throw new Error("undefined");
   }
 
   push(t: T): void {
-    throw new Error("Not implemented");
+    const newNode = {
+      item: t,
+      next: this.head,
+    };
+    this.head = newNode;
   }
 
   pop(): T {
-    throw new Error("Not implemented");
+    if (this.head === undefined) {
+      throw new Error();
+    }
+
+    let current = this.head;
+    this.head = current.next;
+    return current.item;
   }
+}
+
+interface Node<T> {
+  item: T;
+  next: Node<T> | undefined;
 }
