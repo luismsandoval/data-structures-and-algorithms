@@ -3,6 +3,7 @@ import { Collection, display } from "./Collection";
 export class LinkedList<T> implements Collection<T> {
   start: Node<T> | undefined;
 
+
   insert(item: T) {
     const newNode = {
       item: item,
@@ -115,6 +116,25 @@ export class LinkedList<T> implements Collection<T> {
       count--;
       tracker = tracker.next;
     }
+  }
+
+  static zip<T>(ll1: LinkedList<T>, ll2: LinkedList<T>): LinkedList<T> {
+    const zipped = new LinkedList<T>();
+
+    let track1 = ll1.start;
+    let track2 = ll2.start;
+    console.log(track1?.next, track2?.item);
+    while (track1?.next !== undefined || track2?.next !== undefined) {
+      if (track1?.item !== undefined) {
+        zipped.append(track1.item);
+        track1 = track1.next;
+      }
+      if (track2?.item !== undefined) {
+        zipped.append(track2.item);
+        track2 = track2.next;
+      }
+    }
+    return zipped;
   }
 }
 
