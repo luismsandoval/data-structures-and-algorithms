@@ -6,7 +6,7 @@ Implement a data structure SetOfStacks that should be composed of several stacks
 
 ## Approach & Efficiency
 
-Test Driven Development. I started writing out some basic tests before writing the actual methods.
+Test Driven Development. I started by writing code to get the intitial tests passing.
 
 ## Whiteboard
 
