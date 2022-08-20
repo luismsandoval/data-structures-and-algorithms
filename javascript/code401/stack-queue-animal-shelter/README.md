@@ -30,3 +30,7 @@
 - `shelter.dequeue()`
   - Time: O(1)
   - Space: O(1)
+
+## Whiteboard
+
+![whiteboard](img/codechallenge12.jpg)
