@@ -32,3 +32,41 @@ export class Graph<NV, EV> {
     return this.nodes.size;
   }
 }
+
+export const breadthFirst = <NV, EV>(
+  graph: Graph<NV, EV>,
+  start: Node<NV, EV>
+): NV[] => {
+  const q = [start];
+  const visited = new Set<Node<NV, EV>>();
+  const traversal: NV[] = [];
+  let next = q.pop();
+  while (next !== undefined) {
+    if (!visited.has(next)) {
+      visited.add(next);
+      traversal.push(next.value);
+      q.push(...graph.neighbors(next));
+    }
+    next = q.pop();
+  }
+  return traversal;
+};
+
+export const depthFirst = <NV, EV>(
+  graph: Graph<NV, EV>,
+  start: Node<NV, EV>
+): NV[] => {
+  const q = [start];
+  const visited = new Set<Node<NV, EV>>();
+  const traversal: NV[] = [];
+  let next = q.pop();
+  while (next !== undefined) {
+    if (!visited.has(next)) {
+      visited.add(next);
+      traversal.push(next.value);
+      q.push(...graph.neighbors(next));
+    }
+    next = q.pop();
+  }
+  return traversal;
+};
