@@ -1,4 +1,4 @@
-import { Graph } from "./graph";
+import { Graph, breadthFirst } from "./graph";
 
 describe("graph", () => {
   const graph = new Graph();
@@ -27,6 +27,13 @@ describe("graph", () => {
     const f = graph.addNode("f");
     graph.addEdge(d, f, true);
     graph.addEdge(e, f, true);
+    graph.addEdge(e, b, true);
+    graph.addEdge(e, c, true);
+
     expect(graph.size()).toEqual(6);
+  });
+
+  it("bfs", () => {
+    expect(breadthFirst(graph, b)).toEqual(["b", "e", "c", "f", "d"]);
   });
 });
