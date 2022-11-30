@@ -89,3 +89,32 @@ export const businessTrip = (
   }
   return cost;
 };
+
+export const canSolve = (start: Node<string | undefined, boolean>): boolean => {
+  const visited = new Set();
+  const queue = [start];
+  let hasKey = false;
+
+  while (queue.length > 0) {
+    const node = queue.shift()!;
+
+    if (node.value === "treasure") {
+      return true;
+    }
+
+    if (node.value === "key") {
+      hasKey = true;
+    }
+    visited.add(node);
+
+    for (const [room, locked] of node.edges) {
+      if (!locked || (locked && hasKey)) {
+        if (visited.has(room) || queue.includes(room)) {
+          continue;
+        }
+        queue.push(room);
+      }
+    }
+  }
+  return false;
+};
