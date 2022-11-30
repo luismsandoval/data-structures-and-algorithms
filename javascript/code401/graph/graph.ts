@@ -70,3 +70,22 @@ export const depthFirst = <NV, EV>(
   }
   return traversal;
 };
+
+export const businessTrip = (
+  tripQueue: Node<string, number>[]
+): number | null => {
+  let cost = 0;
+  let current = tripQueue.shift()!;
+
+  while (tripQueue.length > 0) {
+    let next = tripQueue.shift()!;
+
+    if (!current.edges.has(next)) {
+      return null;
+    }
+
+    cost += current.edges.get(next)!;
+    current = next;
+  }
+  return cost;
+};

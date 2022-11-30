@@ -1,4 +1,4 @@
-import { Graph, breadthFirst } from "./graph";
+import { Graph, breadthFirst, businessTrip } from "./graph";
 
 describe("graph", () => {
   const graph = new Graph();
@@ -35,5 +35,32 @@ describe("graph", () => {
 
   it("bfs", () => {
     expect(breadthFirst(graph, b)).toEqual(["b", "e", "c", "f", "d"]);
+  });
+
+  it("business trip", () => {
+    const busGraph = new Graph();
+    const metroville = busGraph.addNode("metroville");
+    const pandora = busGraph.addNode("pandora");
+    const arendelle = busGraph.addNode("arendelle");
+    const monst = busGraph.addNode("monstropolis");
+    const narnia = busGraph.addNode("narnia");
+    const naboo = busGraph.addNode("naboo");
+
+    busGraph.addEdge(pandora, arendelle, 150);
+    busGraph.addEdge(pandora, metroville, 82);
+    busGraph.addEdge(arendelle, metroville, 99);
+    busGraph.addEdge(arendelle, monst, 42);
+    busGraph.addEdge(metroville, monst, 105);
+    busGraph.addEdge(metroville, narnia, 37);
+    busGraph.addEdge(metroville, naboo, 26);
+    busGraph.addEdge(monst, naboo, 73);
+    busGraph.addEdge(naboo, narnia, 250);
+
+    const nodes1 = [metroville, pandora];
+    const nodes2 = [arendelle, monst, naboo];
+    // @ts-ignore
+    expect(businessTrip(nodes1)).toEqual(82);
+    // @ts-ignore
+    expect(businessTrip(nodes2)).toEqual(115);
   });
 });
