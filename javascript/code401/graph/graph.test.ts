@@ -1,4 +1,4 @@
-import { Graph, breadthFirst, businessTrip } from "./graph";
+import { Graph, breadthFirst, businessTrip, canSolve } from "./graph";
 
 describe("graph", () => {
   const graph = new Graph();
@@ -62,5 +62,32 @@ describe("graph", () => {
     expect(businessTrip(nodes1)).toEqual(82);
     // @ts-ignore
     expect(businessTrip(nodes2)).toEqual(115);
+  });
+
+  it("can solve a maze", () => {
+    const maze = new Graph();
+    const start = maze.addNode("start");
+    const keyRoom = maze.addNode("key");
+    const treasure = maze.addNode("treasure");
+    const empty = maze.addNode("");
+
+    maze.addEdge(start, keyRoom, false);
+    maze.addEdge(start, empty, false);
+    maze.addEdge(empty, treasure, true);
+
+    const maze2 = new Graph();
+    const start2 = maze.addNode("start");
+    const keyRoom2 = maze.addNode("key");
+    const treasure2 = maze.addNode("treasure");
+    const empty2 = maze.addNode("");
+
+    maze2.addEdge(start2, empty2, false);
+    maze2.addEdge(start2, keyRoom2, true);
+    maze2.addEdge(keyRoom2, treasure, false);
+
+    //@ts-ignore
+    expect(canSolve(start)).toBe(true);
+    //@ts-ignore
+    expect(canSolve(start2)).toBe(false);
   });
 });

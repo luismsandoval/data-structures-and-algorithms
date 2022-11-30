@@ -1,9 +1,11 @@
 # Graphs
 
-## Challenge 37
+## Challenge 38
 
-- Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?
+- write a function, `can_solve`, which takes a maze as its input and returns boolean `true` if a player could get from the start of the maze to the pot of gold, or false if there is a locked door without an available key between the start and the gold.
+
+- Defining the input type of the can_solve function is part of this challenge.
 
 ## Approach and Efficiency
 
-![whiteboard](/img/cc37.jpg)
+![whiteboard](/img/cc38.jpg)
