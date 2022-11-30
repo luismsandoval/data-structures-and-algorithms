@@ -40,14 +40,14 @@ export const breadthFirst = <NV, EV>(
   const q = [start];
   const visited = new Set<Node<NV, EV>>();
   const traversal: NV[] = [];
-  let next = q.pop();
+  let next = q.shift();
   while (next !== undefined) {
     if (!visited.has(next)) {
       visited.add(next);
       traversal.push(next.value);
       q.push(...graph.neighbors(next));
     }
-    next = q.pop();
+    next = q.shift();
   }
   return traversal;
 };
